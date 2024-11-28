@@ -1,0 +1,63 @@
+variables:
+- name: BuildParameters.solution
+  value: '**\*.sln'
+- name: BuildParameters.ArtifactName
+  value: drop
+name: $(date:yyyyMMdd)$(rev:.r)
+resources:
+  repositories:
+  - repository: self
+    type: git
+    ref: master
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    vmImage: windows-2019
+  steps:
+  - checkout: self
+    clean: true
+    fetchTags: false
+  - task: bleddynrichards.Assembly-Info-Task.Assembly-Info-NetCore.Assembly-Info-NetCore@3
+    displayName: Set Assembly Manifest Data
+  - task: NuGetToolInstaller@0
+    displayName: Use NuGet 6.8
+    inputs:
+      versionSpec: 6.8
+  - task: NuGetCommand@2
+    displayName: NuGet restore
+    inputs:
+      solution: $(BuildParameters.solution)
+  - task: VSBuild@1
+    displayName: Build solution
+    inputs:
+      solution: $(BuildParameters.solution)
+      msbuildArgs: /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactstagingdirectory)\\"
+      platform: $(BuildPlatform)
+      configuration: $(BuildConfiguration)
+  - task: NuGetAuthenticate@1
+    displayName: NuGet Authenticate
+  - task: DotNetCoreCLI@2
+    displayName: dotnet pack
+    inputs:
+      command: pack
+  - task: PublishSymbols@2
+    displayName: Publish symbols path
+    continueOnError: True
+    inputs:
+      SearchPattern: '**\bin\**\*.pdb'
+      PublishSymbols: false
+      SymbolServerType: TeamServices
+  - task: NuGetCommand@2
+    displayName: NuGet push
+    inputs:
+      command: push
+      feedPublish: 60eb37dd-5b87-44ce-ae69-b930b541fd53/de2a6872-1e3f-4d44-bf28-65bc91a19916
+  - task: PublishBuildArtifacts@1
+    displayName: Publish Artifact
+    condition: succeededOrFailed()
+    inputs:
+      PathtoPublish: $(build.artifactstagingdirectory)
+      ArtifactName: $(BuildParameters.ArtifactName)
+      TargetPath: '\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)'
+...
