@@ -1,0 +1,15 @@
+C:\Users\kevin\source\repos\Quiz4App\Quiz4App\bin\Debug\net8.0\Quiz4App.exe
+C:\Users\kevin\source\repos\Quiz4App\Quiz4App\bin\Debug\net8.0\Quiz4App.deps.json
+C:\Users\kevin\source\repos\Quiz4App\Quiz4App\bin\Debug\net8.0\Quiz4App.runtimeconfig.json
+C:\Users\kevin\source\repos\Quiz4App\Quiz4App\bin\Debug\net8.0\Quiz4App.dll
+C:\Users\kevin\source\repos\Quiz4App\Quiz4App\bin\Debug\net8.0\Quiz4App.pdb
+C:\Users\kevin\source\repos\Quiz4App\Quiz4App\obj\Debug\net8.0\Quiz4App.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kevin\source\repos\Quiz4App\Quiz4App\obj\Debug\net8.0\Quiz4App.AssemblyInfoInputs.cache
+C:\Users\kevin\source\repos\Quiz4App\Quiz4App\obj\Debug\net8.0\Quiz4App.AssemblyInfo.cs
+C:\Users\kevin\source\repos\Quiz4App\Quiz4App\obj\Debug\net8.0\Quiz4App.csproj.CoreCompileInputs.cache
+C:\Users\kevin\source\repos\Quiz4App\Quiz4App\obj\Debug\net8.0\Quiz4App.sourcelink.json
+C:\Users\kevin\source\repos\Quiz4App\Quiz4App\obj\Debug\net8.0\Quiz4App.dll
+C:\Users\kevin\source\repos\Quiz4App\Quiz4App\obj\Debug\net8.0\refint\Quiz4App.dll
+C:\Users\kevin\source\repos\Quiz4App\Quiz4App\obj\Debug\net8.0\Quiz4App.pdb
+C:\Users\kevin\source\repos\Quiz4App\Quiz4App\obj\Debug\net8.0\Quiz4App.genruntimeconfig.cache
+C:\Users\kevin\source\repos\Quiz4App\Quiz4App\obj\Debug\net8.0\ref\Quiz4App.dll
